@@ -2,16 +2,14 @@
 
 
 ## --------------------------------------------------
-## Gabriela Q.  Pablo S. y Benjamín S. - IoTicos.org
+## JUAN BENITO LEON SANCHEZ
 ## ---------------------------------------------------
 
 ## --------------------------------------------------
-## ReymondRojasNúñez - IoTCostaRica -ISCORP2021
-## Creditos: ioticos.org
+## PROYECTO DE GRADO
 ## ---------------------------------------------------
 
-## GRACIAS REYMOND!!!
-
+## GRACIAS!!!
 
 rand-str()
 {
@@ -30,13 +28,13 @@ rand-str()
 
 clear
 msg="
-  _____     _____ _                   ___   __  
-  \_   \___/__   (_) ___ ___  ___    / _ \ / /  
-   / /\/ _ \ / /\/ |/ __/ _ \/ __|  / /_\// /   
-/\/ /_| (_) / /  | | (_| (_) \__ \ / /_\\/ /___ 
-\____/ \___/\/   |_|\___\___/|___/ \____/\____/ 
+  _____     _____ _     
+  \_   \___/__  ___/      
+   / /\/ _ \ / /      
+/\/ /_| (_) / /         
+\____/ \___/\/          
 
-                                    ioticoscr                                                
+                                                                              
 "
 
 
@@ -49,12 +47,7 @@ printf "Verás entre paréntesis y en $(tput setaf 128)(este color)$(tput setaf 
 printf "De lo contrario podrás ingresar manualmente la opción solicitada.\n"
 printf "No te preocupes al final del cuestionario, verás un resumen antes de confirmar.\n\n\n"
 
-
 read -p "Presiona enter para continuar..."
-
-
-
-
 
 ## ______________________________
 ## TIME ZONE
@@ -102,7 +95,6 @@ done
 ## EMQX
 
 
-
 #Dashboard Password
 random_str=$(rand-str 20)
 printf "\n\n🔐 Necesitamos crear una clave para el Dashboard de EMQX \n"
@@ -140,7 +132,6 @@ do
 done
 
 
-
 #MQTT SUPERUSER PASSWORD
 random_str=$(rand-str 20)
 printf "\n\n🔐 Necesitamos crear la clave del superusuario MQTT \n"
@@ -164,8 +155,6 @@ do
 done
 
 
-
-
 ## ______________________________
 ## FRONT
 
@@ -181,7 +170,6 @@ do
 done
 
 
-
 #IP 
 printf "\n\n🌐 Ingresa la ip pública del VPS. \n"
 
@@ -192,14 +180,11 @@ do
 done
 
 
-
-
 #SSL?
 printf "\n\n🔐 El sistema está pensado para que un balanceador de cargas gestione los certificados SSL. \n"
 printf "   Si la plataforma estará bajo SSL utilizando balanceador de cargas o proporcionando certificados, selecciona 'Con SSL'. \n"
 printf "   Esto forzará la redirección SSL, además, el cliente web, se conectará al broker mqtt mediante websocket seguro. \n"
 printf "   Si de momento vas a acceder a la plataforma usando una ip, o un dominio sin ssl... selecciona 'Sin SSL'. \n\n"
-
 
 
 PS3='   SSL?: '
@@ -277,8 +262,8 @@ sudo ./install_docker.sh
 sudo rm install_docker.sh
 sudo curl -L "https://github.com/docker/compose/releases/download/1.28.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
-sudo git clone https://github.com/ioticos/ioticos_god_level_services.git
-sudo mv ioticos_god_level_services services
+sudo git clone https://github.com/JBenito-IoT/Smart_Tree_services.git
+sudo mv Smart_Tree_services services
 
 
 cd services
@@ -304,8 +289,8 @@ sudo sh -c " echo 'EMQX_DEFAULT_USER_PASSWORD=${EMQX_DEFAULT_USER_PASSWORD}' >> 
 sudo sh -c " echo 'EMQX_DEFAULT_APPLICATION_SECRET=${EMQX_DEFAULT_APPLICATION_SECRET}' >> $filename"
 
 
-sudo git clone https://github.com/ioticos/ioticos_god_level_app.git
-sudo mv ioticos_god_level_app  app
+sudo git clone https://github.com/JBenito-IoT/Smart_Tree_app.git
+sudo mv Smart_Tree_app  app
 
 cd app
 
@@ -351,18 +336,11 @@ sudo sh -c "echo 'MQTT_PREFIX=${WSPREFIX}' >> $filename"
 
 sudo sh -c " echo 'SSLREDIRECT=${SSLREDIRECT}' >> $filename"
 
-
 cd ..
-
 
 
 sudo docker-compose -f docker_node_install.yml up
 sudo docker-compose -f docker_nuxt_build.yml up
 sudo docker-compose -f docker_compose_production.yml up -d
-
-
-
-
-
 
 
