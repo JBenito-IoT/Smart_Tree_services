@@ -1,4 +1,4 @@
-# IOTICOS GL (Plataforma IoT Nivel DIOS)
+# SMART TREE (Plataforma IoT Nivel DIOS)
 
 Este repositorio contiene los servicios a montar (via docker) para montar la plataforma Smart Tree.
 
